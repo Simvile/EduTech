@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="fontawesome/css/all.min.css" type="text/css" /> 
+    <link rel="stylesheet" href="css/slick.css" type="text/css" />   
+    <link rel="stylesheet" href="css/tooplate-simply-amazed.css" type="text/css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        
+                   <button class="navbar-button collapsed" type="button">
+            <span class="menu_icon">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </span>
+        </button>
+
+        </div>
+        </div>
+
+         <div class="container">
+        <h1><b>Introduction to E-commerce</b></h1>
+             <p> Welcome to the Introductory course on Ecommerce. This course has been designed to give you access to detailed and informative information on everything Ecommerce.  </p>
+                
+             <br />
+             <br />
+
+             <h2> Course schedule </h2>
+             <br />
+              <h3><b>Chapter 1: Introduction to E-Commerce</b></h3>
+
+             <p>-Understand the concept of electronic commerce (e-commerce) and its significance in the modern business landscape</p>
+             <p>-Explore the historical evolution of e-commerce and its impact on traditional commerce.</p>
+             <p>-Identify the key drivers and benefits of e-commerce for businesses and consumers.</p>
+             <p>-Recognize the challenges and opportunities associated with e-commerce in the digital age.</p>
+
+             <h3><b>Chapter 2: E-Commerce Business Models and Strategies</b></h3>
+
+             <p>-Examine different e-commerce business models, including online marketplaces, subscription-based services, and direct-to-consumer (DTC) approaches.</p>
+             <p>-Understand how to develop a comprehensive e-commerce strategy tailored to your business goals.</p>
+             <p>-Explore revenue generation strategies, including pricing models and monetization techniques.</p>
+             <p>-Learn about customer acquisition and retention strategies in the e-commerce context.</p>
+             <p>-Evaluate the role of innovation and adaptation in sustaining competitive advantage in e-commerce.</p>
+
+             <h3><b>Chapter 3: E-Commerce Website Development</b></h3>
+
+             <p>-Explore the critical components of a successful e-commerce website, including design, user experience (UX), and user interface (UI).</p>
+             <p>-Identify and compare popular e-commerce platforms, such as Shopify, WooCommerce, and Magento.</p>
+             <p>-Learn how to select and integrate secure payment gateways.</p>
+             <p>-Discover best practices for website maintenance and updates to ensure a seamless shopping experience.</p>
+
+             <h3><b>Chapter 4: E-Commerce Marketing and Promotion</b></h3>
+
+             <p>-Develop a deep understanding of search engine optimization (SEO) and its role in driving organic traffic to your e-commerce site.</p>
+             <p>-Explore content marketing strategies, including blog posts, product descriptions, and video marketing.</p>
+             <p>-Learn how to leverage social media platforms for effective e-commerce promotion.</p>
+             <p>-Delve into paid advertising options, including Google Ads and social media ads.</p>
+
+             <h3><b>Chapter 5: E-Commerce Analytics and Performance Tracking</b></h3>
+
+             <p>-Identify key performance indicators (KPIs) relevant to e-commerce businesses, such as conversion rate, customer acquisition cost (CAC), and customer lifetime value (CLV).</p>
+             <p>-Learn how to set up and use analytics tools like Google Analytics to gather actionable insights.</p>
+             <p>-Understand the process of data-driven decision-making and continuous improvement.</p>
+             <p>-Explore techniques for A/B testing and optimizing e-commerce website performance.</p>
+             <p>-Develop the ability to measure and analyze the success of marketing campaigns and user engagement strategies.</p>
+
+             <br />
+
+             <p>These chapters provide a strong foundation for understanding and succeeding in the field of e-commerce. 
+                 They cover fundamental concepts, strategies, and practical considerations that are essential 
+                 for both students studying e-commerce and entrepreneurs looking to 
+                 establish or improve their online businesses.</p>
+
+             <br/>
+
+             <input id="btnEnroll" type="button" value="Enroll" />
+
+             <br />
+    </form>
+</body>
+</html>
