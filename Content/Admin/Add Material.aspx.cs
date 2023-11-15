@@ -19,6 +19,7 @@ namespace BizWiz.Content.Admin
             BindDropdowns();
         }
 
+
         public static string getReference()
         {
             var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -58,10 +59,28 @@ namespace BizWiz.Content.Admin
             }
         }
 
+        private void CourseCode()
+        {
+            using (db.mySqlConn())
+            {
+                db.ReadData("SELECT * FROM [dbo].[Courses] WHERE [Course Name] = '" + DropDownList2.SelectedValue.Trim() + "'");
+
+                if (db.rd.HasRows)
+                {
+                    while (db.rd.Read())
+                    {
+                        Session["Code"] = db.rd.GetValue(0).ToString();
+                        Session["Name"] = db.rd.GetValue(1).ToString();
+                    }
+                }
+            }
+        }
+
         protected void BtnAddPaper_Click(object sender, EventArgs e)
         {
             try
             {
+                CourseCode();
                 if (FileDocuments.HasFiles)
                 {
 
@@ -80,24 +99,8 @@ namespace BizWiz.Content.Admin
                         string videoUrls = Videos.Text;
                         string Qpapers = questions.Text;
 
-
-                        
-
-
                         using (db.mySqlConn())
                         {
-                            db.sqlQueries("SELECT * FROM [dbo].[Courses] WHERE [Course Name] = '" + DropDownList2.SelectedValue.Trim() + "'");
-                            db.mySqlConn();
-                            using (SqlDataReader reader = db.cmd.ExecuteReader())
-                            {
-                                while (reader.Read())
-                                {
-                                    if (reader.HasRows)
-                                    {
-                                        Session["CourseCode"] = reader["Course Code"].ToString();
-                                    }
-                                }
-                            }
 
 
                             // Add support for multiple video URLs (assuming they are separated by a comma)
@@ -109,11 +112,11 @@ namespace BizWiz.Content.Admin
                             string QpaperUrlToAdd = (i < paperUrlArray.Length) ? paperUrlArray[i] : "";
 
 
-                            string query = "INSERT INTO [dbo].[Course_Material]([Ref],[Course Code],[Course Name],[Introduction],[videos],[documents], [QuestionPapers])VALUES('" + getReference() + "','" + Session["CourseCode"] + "','" + DropDownList2.SelectedValue + "','" + txtAreaDescr.Text + "','"+videoUrlToAdd+"', '"+ filePath +"', '"+ QpaperUrlToAdd + "')";
+                            string query = "INSERT INTO [dbo].[Course_Material]([Ref],[Course Code],[Course Name],[Introduction],[videos],[documents], [QuestionPapers])VALUES('" + getReference() + "','" + Session["Code"] + "','" + Session["Name"] + "','" + txtAreaDescr.Text + "','" + videoUrlToAdd + "', '" + filePath + "', '" + QpaperUrlToAdd + "')";
                             db.sqlQueries(query);
                             db.nonQuery();
 
-                            MessageIntro.Text = "Succefully uploaded file " + FileDocuments.FileName;
+                            MessageIntro.Text = "Succefully uploaded file " + FileDocuments.FileName + Session["Code"];
                             MessageIntro.ForeColor = System.Drawing.Color.Green;
                             FileDocuments.BorderColor = System.Drawing.Color.LightGray;
                             MessageIntro.Visible = true;
@@ -133,9 +136,7 @@ namespace BizWiz.Content.Admin
             }
             catch (Exception ex)
             {
-                //MessageIntro.Text = ex.Message;
-                //MessageIntro.ForeColor = System.Drawing.Color.Red;
-                //MessageIntro.Visible = true;
+                Response.Write(ex.Message + " " + "The data was not saved!!" + Session["Code"]);
             }
         }
     }

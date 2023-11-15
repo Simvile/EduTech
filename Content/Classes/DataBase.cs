@@ -12,7 +12,7 @@ namespace BizWiz.Content.Classes
     {
         private SqlConnection con;
         public SqlCommand cmd;
-        public SqlDataReader rd;
+        public SqlDataReader rd { get; set; }
         public DataTable dt;
         public DataSet ds;
         public DataBase()
@@ -40,6 +40,14 @@ namespace BizWiz.Content.Classes
         {
             cmd.ExecuteNonQuery();
             con.Close();
+        }
+
+        public SqlDataReader ReadData(string sql)
+        {
+            SqlCommand cmd = new SqlCommand(sql, con);
+            rd = cmd.ExecuteReader();
+            return rd;
+
         }
 
 

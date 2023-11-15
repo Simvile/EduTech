@@ -14,7 +14,8 @@ namespace BizWiz.Content.User_Interface
         DataBase db = new DataBase();
         protected void Page_Load(object sender, EventArgs e)
         {
-                //address.Text = Session["UserID"].ToString();
+            address.Text = Session["Course Code"].ToString();
+            address2.Text = Session["UserID"].ToString();
 
             if (IsPostBack)
             {
@@ -33,7 +34,7 @@ namespace BizWiz.Content.User_Interface
             ChangeBorderColorIfEmpty(cc_expiration);
             ChangeBorderColorIfEmpty(cc_number);
             ChangeBorderColorIfEmpty(cc_cvv);
-            
+
         }
 
         private void ChangeBorderColorIfEmpty(TextBox textBox)
@@ -60,20 +61,13 @@ namespace BizWiz.Content.User_Interface
                 }
                 else
                 {
-                    using (db.mySqlConn())
-                    {
-                        db.sqlQueries("INSERT INTO [dbo].[Enrollment] VALUES('" + getReference() + "','" + Session["UserID"] + "','" + Session["Course Code"] + "','" + DateTime.Now + "')");
-
-                        db.sqlQueries("INSERT INTO [dbo].[Payment] VALUES('"+getReference()+"','"+ Session["UserID"] + "','"+ Session["Course Code"] + "','"+ Session["Course Price"] + "','"+ DateTime.Now +"')");
-                        db.nonQuery();
-
-                        Response.Redirect("Course_Layout.aspx");
-                    }
+                    Enroll();
+                    Pay();
+                    Response.Redirect("Course_Layout.aspx");
                 }
             }
             catch (Exception ex)
             {
-                Session["error"] = ex.Message;
                 Response.Write(ex.Message);
             }
         }
@@ -92,6 +86,38 @@ namespace BizWiz.Content.User_Interface
             var finalString = new String(stringChars);
 
             return finalString;
+        }
+
+        private void Enroll()
+        {
+            try
+            {
+                using (db.mySqlConn())
+                {
+                    db.sqlQueries("INSERT INTO [dbo].[Enrollment] VALUES('" + getReference() + "','" + Session["UserID"] + "','" + Session["Course Code"] + "','" + DateTime.Now + "')");
+                    db.nonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("Error 404.aspx");
+            }
+        }
+
+        private void Pay()
+        {
+            try
+            {
+                using (db.mySqlConn())
+                {
+                    db.sqlQueries("INSERT INTO [dbo].[Payment] VALUES('" + getReference() + "','" + Session["UserID"] + "','" + Session["Course Code"] + "','" + Session["Course Price"] + "','" + DateTime.Now + "')");
+                    db.nonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("Error 404.aspx");
+            }
         }
 
         protected void btnConfirmPayment_Click(object sender, EventArgs e)

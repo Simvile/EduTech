@@ -5,31 +5,23 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Reflection.Emit;
+using System.Runtime.Remoting.Messaging;
 using System.Web;
+using System.Web.DynamicData;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Label = System.Web.UI.WebControls.Label;
 
 namespace BizWiz.Content.User_Interface
 {
     public partial class Course_Listing : System.Web.UI.Page
     {
-        DataBase db = new DataBase();
+        private readonly DataBase db = new DataBase();
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
+            if (!IsPostBack)
             {
-                if (Session["User"] == "Student")
-                {
-                    getDate();
-                }
-                else
-                {
-                    Response.Redirect("Error 404.aspx");
-                }
-            }
-            catch (Exception ex)
-            {
-
+                getAllData();
             }
         }
 
@@ -37,12 +29,20 @@ namespace BizWiz.Content.User_Interface
         {
             try
             {
-                using (db.mySqlConn())
+                Button btnEnroll = (Button)sender;
+                DataListItem item = (DataListItem)btnEnroll.NamingContainer;
+
+
+                Label label1 = (Label)item.FindControl("Label1");
+
+                if (label1 != null)
                 {
-                    db.sqlQueries("SELECT * FROM [dbo].[Enrollment] WHERE Student = '" + Session["UserID"] + "' AND [Course Code] = '" + Session["Course Code"] + "'");
-                    using (SqlDataReader reader = db.cmd.ExecuteReader())
+                    Session["Name"] = label1.Text;
+                    getDate(Session["Name"].ToString());
+                    using (db.mySqlConn())
                     {
-                        if (reader.HasRows)
+                        db.ReadData("SELECT * FROM [dbo].[Enrollment] WHERE Student = '" + Session["UserID"] + "' AND [Course Code] = '" + Session["Course Code"] + "'");
+                        if (db.rd.HasRows)
                         {
                             Response.Redirect("Course_Layout.aspx");
                         }
@@ -50,62 +50,54 @@ namespace BizWiz.Content.User_Interface
                         {
                             Response.Redirect("Payment.aspx");
                         }
+
                     }
                 }
             }
             catch (Exception ex)
             {
-                Session["error"] = ex.Message;
                 Response.Write(ex.Message);
-                //Response.Redirect("Error 404.aspx");
             }
         }
 
-        private void getDate()
+        private void getDate(string name)
         {
             try
             {
                 using (db.mySqlConn())
                 {
-                    db.sqlQueries("SELECT * FROM [dbo].[Courses]");
-                    using (SqlDataReader reader = db.cmd.ExecuteReader())
+                    db.ReadData("SELECT * FROM [dbo].[Courses] WHERE [Course Name] = '"+name+"'");
+                    if (db.rd.HasRows)
                     {
-                        if (reader.HasRows)
+                        while (db.rd.Read())
                         {
-                            DataTable dataTable = new DataTable();
-                            dataTable.Load(reader);
-
-                            Session["Course Code"] = dataTable.Rows[1]["Course Code"].ToString();
-                            Session["Course Price"] = dataTable.Rows[1]["Pricing"].ToString();
-
-                            DataList1.DataSource = dataTable;
-                            DataList1.DataBind();
+                            Session["Course Code"] = db.rd.GetValue(0);
+                            Session["Course Price"] = db.rd.GetValue(3);
                         }
                     }
                 }
-
             }
             catch (Exception ex)
             {
-                Response.Write(ex.Message);
+                Response.Redirect("Error 404.aspx");
             }
         }
 
-        //protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
-        //{
-        //    if (e.CommandName == "Select")
-        //    {
-        //        // Get the index of the selected item
-        //        int selectedIndex = e.Item.ItemIndex;
-
-        //        // Retrieve the data from the DataTable based on the selected index
-        //        DataTable dataTable = ((DataTable)DataList1.DataSource);
-        //        DataRow selectedRow = dataTable.Rows[selectedIndex];
-
-        //        // Set sessions based on the data in the selected row
-        //        Session["Course Code"] = selectedRow["Course Code"].ToString();
-        //        Session["Course Price"] = selectedRow["Pricing"].ToString();
-        //    }
-        //}
+        private void getAllData()
+        {
+            try
+            {
+                using (db.mySqlConn())
+                {
+                    db.ReadData("SELECT * FROM [dbo].[Courses] ");
+                    DataList1.DataSource = db.rd;
+                    DataList1.DataBind();
+                }
+            }
+            catch
+            {
+                Response.Redirect("Error 404.aspx");
+            }
+        }
     }
 }

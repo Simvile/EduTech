@@ -86,6 +86,7 @@
     <Content Include="Content\Styles\Css\Payment.css" />
     <Content Include="Content\Styles\Js\AdminMain.js" />
     <Content Include="Content\Styles\Js\Payment.js" />
+    <Content Include="Content\Styles\Js\SearchBox.js" />
     <Content Include="Content\User Interface\Certification.aspx" />
     <Content Include="Content\User Interface\Course Listing.aspx" />
     <Content Include="Content\User Interface\Error 404.aspx" />

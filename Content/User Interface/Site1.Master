@@ -15,6 +15,7 @@
     <link href="../Styles/Css/Course_Layout.css" rel="stylesheet" />
     <link href="../Styles/Css/Certification.css" rel="stylesheet" />
     <link href="../Styles/Css/Course_Listing.css" rel="stylesheet" />
+    <script src="../Styles/Js/SearchBox.js"></script>
 </head>
 <body>
 
@@ -38,7 +39,14 @@
                 <asp:HyperLink ID="link_logIn" runat="server" NavigateUrl="~/Content/User Interface/User_LogIn.aspx" class="nav-link">Log In</asp:HyperLink>
             </li>
             <li class="nav-item">
-                <asp:Label ID="_Profile" Visible="false" class="nav-link" runat="server"></asp:Label>
+                <div class="row">
+                    <div class="col-md-8">
+                        <asp:HyperLink ID="_Profile" NavigateUrl="" Visible="false"  class="nav-link w-100" runat="server"></asp:HyperLink>
+                    </div>
+                    <div class="col-md-4">
+                        <asp:Label ID="LogOut" Visible="true" class="nav-link ml-2 w-100"  style="border-left:1px solid grey; cursor:pointer;" Text="Log Out" runat="server"></asp:Label>
+                    </div>
+                </div>
             </li>
         </ul>
     </header>
