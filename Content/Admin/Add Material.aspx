@@ -8,11 +8,10 @@
     <div class="mt-5 mb-3 pt-5 p-5 m-auto bg-secondary-subtle" style="width: 85%; height: 90vh; overflow: auto;">
         <h1>Add Course material</h1>
         <section id="Introduction">
-            <h5>Add Introduction or Layout</h5>
             <div class="row">
                 <div class="col-md-6">
                     <p>Course Name</p>
-                    <asp:DropDownList ID="DropDownList2" runat="server" CssClass="w-100 rounded-start rounded-end p-1 mb-3"></asp:DropDownList>
+                    <asp:TextBox ID="DropDownList2" runat="server" CssClass="w-100 rounded-start rounded-end p-1 mb-3"></asp:TextBox>
                 </div>
                 <div class="col-md-12">
                     <h7 class="mt-3">Enter Text</h7>

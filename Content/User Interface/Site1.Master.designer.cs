@@ -33,24 +33,6 @@ namespace BizWiz.Content.User_Interface
         protected global::System.Web.UI.WebControls.HyperLink courses;
 
         /// <summary>
-        /// Pricing control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink Pricing;
-
-        /// <summary>
-        /// About control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink About;
-
-        /// <summary>
         /// link_logIn control.
         /// </summary>
         /// <remarks>
@@ -69,13 +51,13 @@ namespace BizWiz.Content.User_Interface
         protected global::System.Web.UI.WebControls.HyperLink _Profile;
 
         /// <summary>
-        /// LogOut control.
+        /// btnLogout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LogOut;
+        protected global::System.Web.UI.WebControls.Button btnLogout;
 
         /// <summary>
         /// ContentPlaceHolder1 control.

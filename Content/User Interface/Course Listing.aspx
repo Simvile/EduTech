@@ -5,7 +5,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="mt-5 mb-3 pt-5 p-3 m-auto " style="width: 85%;">
-        <form runat="server">
             <h1>Course Listing</h1>
             <div class="row">
                 <div class="col-md-7">
@@ -52,7 +51,6 @@
                     </ul>
                 </div>
             </div>
-        </form>
     </div>
 
 

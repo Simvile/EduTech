@@ -16,7 +16,11 @@ namespace BizWiz.Content.Admin
         DataBase db = new DataBase();
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindDropdowns();
+            if (!IsPostBack)
+            {
+                CourseCode();
+            }
+           
         }
 
 
@@ -40,15 +44,7 @@ namespace BizWiz.Content.Admin
 
         private DataTable dosageData;
         private string query = "SELECT * FROM [dbo].[Courses]";
-        private void BindDropdowns()
-        {
-            // Bind the Drug dropdown (ddlDrugName)
-            dosageData = GetDropdownData(query);
-            DropDownList2.DataSource = dosageData;
-            DropDownList2.DataTextField = "Course Name";
-            DropDownList2.DataValueField = "Course Name";
-            DropDownList2.DataBind();
-        }
+
 
         private DataTable GetDropdownData(string query)
         {
@@ -63,7 +59,7 @@ namespace BizWiz.Content.Admin
         {
             using (db.mySqlConn())
             {
-                db.ReadData("SELECT * FROM [dbo].[Courses] WHERE [Course Name] = '" + DropDownList2.SelectedValue.Trim() + "'");
+                db.ReadData("SELECT * FROM [dbo].[Courses] WHERE [Course Name] = '" + DropDownList2.Text.Trim() + "'");
 
                 if (db.rd.HasRows)
                 {
@@ -80,7 +76,7 @@ namespace BizWiz.Content.Admin
         {
             try
             {
-                CourseCode();
+               
                 if (FileDocuments.HasFiles)
                 {
 
@@ -111,7 +107,7 @@ namespace BizWiz.Content.Admin
                             string[] paperUrlArray = Qpapers.Split(',');
                             string QpaperUrlToAdd = (i < paperUrlArray.Length) ? paperUrlArray[i] : "";
 
-
+                            CourseCode();
                             string query = "INSERT INTO [dbo].[Course_Material]([Ref],[Course Code],[Course Name],[Introduction],[videos],[documents], [QuestionPapers])VALUES('" + getReference() + "','" + Session["Code"] + "','" + Session["Name"] + "','" + txtAreaDescr.Text + "','" + videoUrlToAdd + "', '" + filePath + "', '" + QpaperUrlToAdd + "')";
                             db.sqlQueries(query);
                             db.nonQuery();

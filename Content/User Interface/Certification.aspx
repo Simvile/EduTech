@@ -6,7 +6,7 @@
 
 
     <div class="mt-5 mb-3 pt-5 p-3 m-auto " style="width: 85%;">
-        <form id="form1" runat="server">
+        <div id="form1" runat="server">
             <div class="outer-border h-75 bg-info-subtle">
                 <div class="inner-dotted-border">
                     <span class="certification">Certificate of Completion</span>
@@ -40,7 +40,7 @@
                     <input type="button" value="Download" class="btn btn-outline-success w-75 mt-3" />
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 
 

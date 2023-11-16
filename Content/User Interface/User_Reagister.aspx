@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <main class="form-signin w-100 m-auto p-4">
-        <form runat="server" class="mt-5">
+        <div class="mt-5">
             <center>
                 <img class="mb-4" src="../Resources/Images/logo.jpg" alt="" width="92" height="77" />
             </center>
@@ -37,6 +37,6 @@
             <asp:Button ID="btnregister" runat="server" Text="Create" OnClick="btnregister_Click" class="btn btn-outline-primary w-100 py-2 mb-3 mt-3"  />
             <a class=" mt-5 mb-3 link-underline-light" href="User_LogIn.aspx">Already have an account ?
             </a>
-        </form>
+        </div>
     </main>
 </asp:Content>

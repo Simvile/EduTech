@@ -134,6 +134,7 @@
       <DependentUpon>Reports.aspx</DependentUpon>
     </Compile>
     <Compile Include="Content\Classes\DataBase.cs" />
+    <Compile Include="Content\Classes\FormValidation.cs" />
     <Compile Include="Content\User Interface\Certification.aspx.cs">
       <DependentUpon>Certification.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

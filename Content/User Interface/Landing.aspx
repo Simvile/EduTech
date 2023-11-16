@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-<form runat="server" class="form p-5 h-100">
+<div class="form p-5 h-100">
     <div class="row">
         <div class="col-md-6">
             <h1><b>EduTech: Where Education Meets E-Commerce</b></h1>
@@ -22,6 +22,6 @@
             <img src="../Resources/Images/LandingPage.jpg" class="w-100 h-100 rounded-start rounded-end"/>
         </div>
     </div>
-</form>
+</div>
 
 </asp:Content>

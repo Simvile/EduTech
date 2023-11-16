@@ -12,7 +12,7 @@
                 <asp:Label ID="Label1" runat="server" style="font-size:25px; font-weight:400; "></asp:Label>
                 </center>
                 <h4 class="mb-3">Billing address</h4>
-                <form runat="server" id="paymentForm" class="needs-validation" novalidate>
+                <div id="paymentForm" class="needs-validation" novalidate>
                     <div class="row g-3">
                         <div class="col-12">
                             <label for="address" class="form-label">Street Name</label>
@@ -83,7 +83,7 @@
                     <div class="col-md-12">
                     <asp:Button ID="btnMakePayment" runat="server" class="w-100 btn btn-primary btn-lg mt-5" OnClick="Button1_Click" Text="Make Payment" />
                         </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>

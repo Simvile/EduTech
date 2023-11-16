@@ -13,5 +13,11 @@ namespace BizWiz.Content.Admin
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("../User Interface/User_LogIn.aspx");
+        }
     }
 }
