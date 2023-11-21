@@ -21,6 +21,8 @@ Feel free to explore the documentation to understand the project better.
 ## Contributing
 
 - [Simvile Zimeme (Programmer!)](https://github.com/Simvile)
+- [Caleb Botha (Project Manager)](https://github.com/CalebBotha)
+- [Nathaniel Tachell (DataBase Analyst)](https://github.com/MrTatchell)
 
 ## System Screenshots
 
