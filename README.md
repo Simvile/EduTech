@@ -8,7 +8,7 @@ EduTech is a robust online e-commerce platform that facilitates the sale of shor
 
 ## Documentation
 
-Detailed documentation for different aspects of the project can be found in the "docs" folder:
+Detailed documentation for different aspects of the project can be found in the "Documentaion" folder:
 
 - [System Brief](Documentation/System_Brief.md)
 - [System Matrix](Documentation/System_Matrix.md)
@@ -20,7 +20,7 @@ Feel free to explore the documentation to understand the project better.
 
 ## Contributing
 
-- Simvile Zimeme (Programmer!)
+- [Simvile Zimeme (Programmer!)](https://github.com/Simvile)
 
 ## System Screenshots
 
