@@ -4,7 +4,7 @@ Welcome to Edu-Tech! This README provides a brief overview of the project.
 
 ## Overview
 
-EduTech is a robust online e-commerce platform that facilitates the sale of short self-taught courses to students for a fee. This platform will serve as a marketplace for learners to access high-quality educational content. Ourplatform's primary goal is to provide a user-friendly, secure, and efficient learning environment for students of all ages. EduTech’s objectives include bridging the current gap between the growing ecommerce industry and individuals with small business looking to adapt to and improve their ecommerce skills
+EduTech is a robust online e-commerce platform that facilitates the sale of short self-taught courses to students for a fee. This platform will serve as a marketplace for learners to access high-quality educational content. Our platform's primary goal is to provide a user-friendly, secure, and efficient learning environment for students of all ages. EduTech’s objectives include bridging the current gap between the growing ecommerce industry and individuals with small business looking to adapt to and improve their ecommerce skills
 
 ## Documentation
 
